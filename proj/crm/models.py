@@ -3,6 +3,12 @@ from django.db import models
 # Create your models here.
 
 
+class Vaccine(models.Model):
+    name = models.CharField(max_length=200)
+    date_recieved = models.DateField()
+    doses_recieved = models.IntegerField()
+
+
 class User(models.Model):
     name = models.CharField(max_length=200)
     birthdate = models.DateField()
@@ -14,9 +20,3 @@ class User(models.Model):
 class Clinician(models.Model):
     name = models.CharField(max_length=200)
     clients = models.ManyToManyField(User)
-
-
-class Vaccine(models.Model):
-    name = models.CharField(max_length=200)
-    date_recieved = models.DateField()
-    doses_recieved = models.IntegerField()
